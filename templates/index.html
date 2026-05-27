@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rabin-Karp Pattern Matching</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        textarea, input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Rabin-Karp Pattern Matching</h2>
+
+    <form method="POST">
+
+        <textarea
+            name="text"
+            rows="8"
+            placeholder="Enter Text Here..."
+            required></textarea>
+
+        <br>
+
+        <input
+            type="text"
+            name="pattern"
+            placeholder="Enter Pattern"
+            required>
+
+        <br>
+
+        <button type="submit">
+            Search Pattern
+        </button>
+    </form>
+
+    {% if result is not none %}
+    <div class="result">
+        <h3>Results</h3>
+
+        <p><strong>Pattern Found At:</strong>
+            {{ result if result else "Not Found" }}
+        </p>
+
+        <p><strong>Text Length:</strong>
+            {{ text_length }}
+        </p>
+
+        <p><strong>Pattern Length:</strong>
+            {{ pattern_length }}
+        </p>
+
+        <p><strong>Execution Time:</strong>
+            {{ execution_time }} seconds
+        </p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
